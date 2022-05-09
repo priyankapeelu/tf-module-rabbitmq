@@ -36,4 +36,7 @@ resource "aws_mq_broker" "rabbitmq" {
     username = "roboshop"
     password = "RoboShop1234"
   }
+
+output "rabbitmq" {
+  value = aws_mq_broker.rabbitmq
 }
