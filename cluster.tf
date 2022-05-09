@@ -32,12 +32,12 @@ resource "aws_mq_broker" "rabbitmq" {
   security_groups    = [aws_security_group.allow_rabbitmq.id]
   subnet_ids         = [data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS[0]]
 
-}
 
   user {
     username = "roboshop"
     password = "RoboShop1234"
   }
+}
 
 output "rabbitmq" {
   value = aws_mq_broker.rabbitmq
