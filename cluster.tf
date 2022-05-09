@@ -25,12 +25,14 @@ resource "aws_security_group" "allow_rabbitmq" {
 }
 
 resource "aws_mq_broker" "rabbitmq" {
-  broker_name = "roboshop-${var.ENV}"
+  broker_name        = "roboshop-${var.ENV}"
   engine_type        = "RabbitMQ"
   engine_version     = "3.9.13"
   host_instance_type = "mq.t3.micro"
   security_groups    = [aws_security_group.allow_rabbitmq.id]
   subnet_ids         = [data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS[0]]
+
+}
 
   user {
     username = "roboshop"
