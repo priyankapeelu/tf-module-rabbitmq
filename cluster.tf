@@ -30,6 +30,7 @@ resource "aws_mq_broker" "rabbitmq" {
   host_instance_type = var.RABBITMQ_INSTANCE_TYPE
   security_groups    = [aws_security_group.allow_rabbitmq.id]
   subnet_ids         = [data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS[0]]
+}
 
 
   user {
